@@ -24,6 +24,8 @@ public class ReadTest {
     @Test
     public void simpleReadListStringV2007() throws IOException {
         InputStream inputStream = FileUtil.getResourcesFileInputStream("2007.xlsx");
+        //sheetNo：表示从第几个sheet页开始，如果超级sheet页范围，会打印出所有的sheet页
+        //headLineMun：从该sheet页的第几行开始，最小下标为0
         List<Object> data = EasyExcelFactory.read(inputStream, new Sheet(1, 0));
         inputStream.close();
         print(data);
